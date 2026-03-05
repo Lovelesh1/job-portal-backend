@@ -8,11 +8,11 @@ const {
   markAsRead,
   getChatStats
 } = require("../controllers/chatController");
-const auth = require("../middleware/auth");
+const { protect } = require("../middleware/auth");
 const authorize = require("../middleware/authorize");
 
 // All routes require authentication and admin role
-router.use(auth);
+router.use(protect);
 router.use(authorize("admin"));
 
 // Get chat statistics
