@@ -7,7 +7,7 @@ require("dotenv").config();
 const app = express();
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
-    ? [process.env.CLIENT_URL] 
+    ? [process.env.CLIENT_URL, "https://job-portal-client-3pjs.onrender.com"] 
     : ["http://localhost:3000", "http://localhost:3001", "http://localhost:3002"],
   credentials: true
 }));
