@@ -83,7 +83,7 @@ router.get("/recruiter", protect, authorize("recruiter"), async (req, res) => {
 
 
 // UPDATE STATUS (Recruiter)
-router.put("/:id", protect, authorize("recruiter"), async (req, res) => {
+router.put("/:id/status", protect, authorize("recruiter"), async (req, res) => {
   try {
     const application = await Application.findById(req.params.id).populate("job");
 

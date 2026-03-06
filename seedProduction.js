@@ -1,9 +1,16 @@
 const mongoose = require("mongoose");
-require("dotenv").config();
 
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB Connected"))
-  .catch(err => console.log("Error:", err));
+// Production MongoDB Atlas URI
+const MONGO_URI = "mongodb+srv://jobportaluser:jobportal123@cluster0.6t11oah.mongodb.net/jobportal?appName=Cluster0";
+
+console.log("Connecting to production MongoDB Atlas...");
+
+mongoose.connect(MONGO_URI)
+  .then(() => console.log("✅ MongoDB Atlas Connected"))
+  .catch(err => {
+    console.log("❌ Error:", err);
+    process.exit(1);
+  });
 
 const Job = require("./models/Job");
 const User = require("./models/User");
